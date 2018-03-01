@@ -18,7 +18,12 @@ export interface UX {
     rangedStyles?: RangedStyle[];
     singleTextObject?: boolean;
     symbolId?: string;
+
+    /**
+     * Is the UID of the 'artboard' first child.
+     */
     path?: string;
+
     gridStyle?: GridStyle;
     colorSwatches?: Color[];
     documentLibrary?: DocumentLibrary;

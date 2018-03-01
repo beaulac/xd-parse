@@ -1,5 +1,5 @@
-import { ClipPathValue } from '../declarations/no_optional_xd';
 import { Artboard } from './Artboard';
+import { ClipPathValue } from './ClipPath';
 import { Style } from './Style';
 import { Meta } from './UX';
 
