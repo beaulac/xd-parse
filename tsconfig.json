@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "types": [
+      "./xd.d.ts"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "declarations"
+  ]
+}

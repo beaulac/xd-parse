@@ -1,0 +1,19 @@
+{
+  "name": "xd-parse",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Antoine Beauvais-Lacasse <antoine@casto.rs>",
+  "license": "ISC",
+  "scripts": {
+    "build-dts": "quicktype --src agc/ --just-types --alphabetize-properties --all-properties-optional --no-maps --no-enums -o xd.d.ts"
+  },
+  "dependencies": {
+    "lodash": "^4.17.5",
+    "mnemonist": "^0.18.0",
+    "prettyjson": "^1.2.1"
+  },
+  "devDependencies": {
+    "quicktype": "latest",
+    "readts": "^0.2.0"
+  }
+}
