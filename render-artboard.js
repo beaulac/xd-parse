@@ -23,7 +23,7 @@ function _findBoundingShape(artboard) {
 function _fillToStyle(fill) {
     if (fill.color) {
         const { color: { value }, type } = fill;
-        return `${type} rgb(${value.r},${value.g},${value.b})`;
+        return `rgba(${value.r},${value.g},${value.b},1)`;
     } else {
         console.warn('Unsupported fill', fill.type);
     }
@@ -39,8 +39,8 @@ function renderArtboard(artboardChild, artboardData) {
     console.log(artboardData);
     const { width, height, x: xOffset, y: yOffset } = artboardData;
 
-    const paper = Snap();
-    const svgRoot = paper.svg(0, 0, width, height, xOffset, yOffset, width, height);
+    const svgRoot = Snap(width + 'px', height + 'px');
+    svgRoot.attr('viewBox', [xOffset, yOffset, width, height].join(' '));
 
     artboard.children.forEach(child => {
         _childToShape(child);
@@ -79,9 +79,12 @@ function renderArtboard(artboardChild, artboardData) {
         switch (shape.type) {
         case 'rect':
             const elem = svgRoot.rect(shape.x, shape.y, shape.width, shape.height);
+            elem.attr('id', child.id);
             elem.attr('transform', _buildTransformAttr(child));
             elem.attr('fill', _fillToStyle(style.fill));
 
+            // Debug
+            elem.attr('stroke', 'red');
             return elem;
         case 'compound':
             console.log('COMPOUND', child.id);
@@ -91,7 +94,7 @@ function renderArtboard(artboardChild, artboardData) {
         }
     }
 
-    return paper.outerSVG();
+    return svgRoot.outerSVG();
 }
 
 const loadArtboard = require('./load-artboard');
