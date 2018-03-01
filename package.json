@@ -8,11 +8,14 @@
     "build-dts": "quicktype --src agc/ --just-types --alphabetize-properties --all-properties-optional --no-maps --no-enums -o xd.d.ts"
   },
   "dependencies": {
+    "jsdom": "^11.6.2",
     "lodash": "^4.17.5",
     "mnemonist": "^0.18.0",
-    "prettyjson": "^1.2.1"
+    "prettyjson": "^1.2.1",
+    "snapsvg": "beaulac/Snap.svg#node_support"
   },
   "devDependencies": {
+    "@types/jsdom": "^11.0.4",
     "quicktype": "latest",
     "readts": "^0.2.0"
   }
